@@ -281,13 +281,26 @@ By optimizing as many routines as possible without losing user friendliness, Not
 
 void cleanFile()
 {
-	int currentEdit;
+	/*int currentEdit;
 	::SendMessage(nppData._nppHandle, NPPM_GETCURRENTSCINTILLA, 0, (LPARAM)&currentEdit);
 	HWND curScint = (currentEdit == 0) ? nppData._scintillaMainHandle : nppData._scintillaSecondHandle;
 	::SendMessage(curScint, SCI_CLEARALL, 0, 0);
 
 	::SendMessage(nppData._nppHandle, NPPM_SAVECURRENTFILE, 0, 0);
-	
+	*/
+
+	int nbFile = (int)::SendMessage(nppData._nppHandle, NPPM_GETNBOPENFILES, 0, 0);
+	for (int i = 0; i < nbFile; i++)
+	{
+		::SendMessage(nppData._nppHandle, NPPM_ACTIVATEDOC, MAIN_VIEW, i);
+		int currentEdit;
+		::SendMessage(nppData._nppHandle, NPPM_GETCURRENTSCINTILLA, 0, (LPARAM)&currentEdit);
+		HWND curScint = (currentEdit == 0) ? nppData._scintillaMainHandle : nppData._scintillaSecondHandle;
+		::SendMessage(curScint, SCI_CLEARALL, 0, 0);
+
+	}
+
+	::SendMessage(nppData._nppHandle, NPPM_SAVEALLFILES, 0, 0);
 }
 void insertCurrentPath(int which)
 {
