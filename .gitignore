@@ -18,3 +18,5 @@ vs.proj/NppPluginDemo.vcxproj.user
 *.ilk
 *.lib
 *.pdb
+/vs.proj/.vs/NppPluginDemo/v16/ipch/AutoPCH
+/vs.proj/.vs/NppPluginDemo/v16/Browse.VC.opendb
