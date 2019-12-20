@@ -13,3 +13,8 @@ vs.proj/NppPluginDemo.lib
 vs.proj/NppPluginDemo.vcxproj.user
 *.zip
 /.vs/NppPluginDemo/v16
+/.vs
+*.exp
+*.ilk
+*.lib
+*.pdb
