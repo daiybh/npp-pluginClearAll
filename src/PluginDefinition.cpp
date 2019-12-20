@@ -103,12 +103,8 @@ void commandMenuInit()
     //            ShortcutKey *shortcut,          // optional. Define a shortcut to trigger this command
     //            bool check0nInit                // optional. Make this menu item be checked visually
     //            );
-    setCommand(0, TEXT("Hello Notepad++"), hello, NULL, false);
-    setCommand(1, TEXT("Hello (with FX)"), helloFX, NULL, false);
-	setCommand(2, TEXT("What is Notepad++?"), WhatIsNpp, NULL, false);
 
-	// Here you insert a separator
-	setCommand(3, TEXT("---"), NULL, NULL, false);
+   
 
 	// Shortcut :
 	// Following code makes the first command
@@ -119,28 +115,9 @@ void commandMenuInit()
 	shKey->_isShift = false;
 	shKey->_key = 0x46; //VK_F
 
-	setCommand(4, TEXT("Current Full Path"), insertCurrentFullPath, shKey, false);
-	setCommand(5, TEXT("Current File Name"), insertCurrentFileName, NULL, false);
-	setCommand(6, TEXT("Current Directory"), insertCurrentDirectory, NULL, false);
-	setCommand(7, TEXT("Date & Time - short format"), insertShortDateTime, NULL, false);
-	setCommand(8, TEXT("Date & Time - long format"), insertLongDateTime, NULL, false);
+	setCommand(0, TEXT("Clean ALL"), cleanFile, shKey, false);
 
-	ShortcutKey *pShKey = new ShortcutKey;
-	pShKey->_isAlt = true;
-	pShKey->_isCtrl = false;
-	pShKey->_isShift = false;
-	pShKey->_key = 0x51; //VK_Q
-	setCommand(9, TEXT("Close HTML/XML tag automatically"), insertHtmlCloseTag, pShKey, doCloseTag);
 	
-	setCommand(10, TEXT("---"), NULL, NULL, false);
-
-	setCommand(11, TEXT("Get File Names Demo"), getFileNamesDemo, NULL, false);
-	setCommand(12, TEXT("Get Session File Names Demo"), getSessionFileNamesDemo, NULL, false);
-	setCommand(13, TEXT("Save Current Session Demo"), saveCurrentSessionDemo, NULL, false);
-
-	setCommand(14, TEXT("---"), NULL, NULL, false);
-
-	setCommand(DOCKABLE_DEMO_INDEX, TEXT("Dockable Dialog Demo"), DockableDlgDemo, NULL, false);
 }
 
 
@@ -157,6 +134,7 @@ void commandMenuCleanUp()
 //----------------------------------------------//
 //-- STEP 4. DEFINE YOUR ASSOCIATED FUNCTIONS --//
 //----------------------------------------------//
+
 void hello()
 {
     // Open a new document
